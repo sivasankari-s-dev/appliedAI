@@ -1,0 +1,6 @@
+aienv/
+.env
+__pycache__/
+temp.py
+filter.py
+openAI_main.py

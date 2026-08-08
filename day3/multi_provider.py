@@ -17,7 +17,7 @@ def generate_response(prompt: str) -> str:
 
 input_text = input("Enter the text : \n")
 print()
-print("----------------------------------------------------------------")
+print("-------------------------------------------------------------------------------------------")
 
 prompt = f"""
 {entity_extraction_prompt}

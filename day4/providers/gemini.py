@@ -12,10 +12,10 @@ class GeminiProvider(LLMProvider):
         response = gemini_client.models.generate_content(
             model="gemini-3-flash-preview",
             contents=prompt,
-            config=types.GenerateContentConfig(
-                response_mime_type="application/json",
-                response_schema=SupportTicket,
-            ),
+            # config=types.GenerateContentConfig(
+            #     response_mime_type="application/json",
+            #     response_schema=SupportTicket,
+            # ),
         )
 
         return response.text.strip()

@@ -1,13 +1,15 @@
 import json
 
 from prompts import entity_extraction_prompt
-from providers.gemini import GeminiProvider
-from providers.claude import ClaudeProvider
+# from providers.gemini import GeminiProvider
+# from providers.claude import ClaudeProvider
+from providers.groqai import GroqProvider
 from schemas import ExtractedDataSummary
 
 
-provider = GeminiProvider()
+# provider = GeminiProvider()
 # provider = ClaudeProvider()
+provider = GroqProvider()
 
 input_text = input("Enter the text:\n")
 
@@ -19,6 +21,8 @@ Text:
 """
 
 response_text = provider.generate(prompt)
+
+# print(response_text)
 
 response_data = json.loads(response_text)
 

@@ -1,6 +1,6 @@
 import asyncio
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 
 from models import ChatResponse
 
@@ -25,11 +25,20 @@ async def root():
 async def health():
     return {"status": "ok"}
 
+# @app.post("/chat", response_model=ChatResponse)
+# async def chat_endpoint(request: ChatRequest):
+#     # data = await request.json()
+#     # message = data.get("message", "")
+#     # Simulate processing the message
+#     await asyncio.sleep(2)  # Simulate some processing delay
+#     response_text = f"Processed message: {request.message}"
+#     return ChatResponse(response=response_text)
+
 @app.post("/chat", response_model=ChatResponse)
 async def chat_endpoint(request: ChatRequest):
-    # data = await request.json()
-    # message = data.get("message", "")
-    # Simulate processing the message
-    await asyncio.sleep(2)  # Simulate some processing delay
-    response_text = f"Processed message: {request.message}"
-    return ChatResponse(response=response_text)
+    try:
+        raise Exception("Something wrong with AI model")
+    except Exception:
+        raise HTTPException(
+            status_code=500, detail="AI service is currently unavailable. Please try again later."
+        )

@@ -16,7 +16,7 @@ def fake_llm():
 async def test_stream(request: Request):
 
     async def stream():
-
+        
         for chunk in fake_llm():
 
             if await request.is_disconnected():
